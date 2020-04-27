@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo List</title>
+    <link rel="stylesheet" href="style/app.css">
+    <link rel="stylesheet" href="style/normalize.css">
+</head>
+<body>
+    <main class="app">
+        <h1 class="app__title">ToDo List</h1>
+        <ul class="app__list list">
+            <li class="list__item item">
+                <lable class="item__checkbox-lable" for="list-item-checkbox"></lable>
+                <input id="list-item-checkbox" class="item__checkbox" type="checkbox">
+                <p class="item__title">Find job</p>
+                <button id="del-btn" class="item__delete-btn button">Delete</button>
+                <button id="change-btn" class="item__change-btn button">Change</button>
+            </li>
+        </ul>
+        <form class="app__form form">
+            <input id="task-name" type="text">
+            <button id="add-item" class="button">Create</button>
+        </form>
+    </main>
+    <script src="script/app.js"></script>
+</body>
+</html>

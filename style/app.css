@@ -38,10 +38,17 @@ body{
     min-height: 200px;
 }
 
+.list__item--completed{
+    background: #bbb;
+
+}
+
 .item{
     display: flex;
     align-items: center;
 }
+
+
 
 .item__title{
     width: 100%;
@@ -61,10 +68,15 @@ body{
 
 }
 
+.item__checkbox--checked{
+    
+    background-color: gray;
+}
+
 .form{
     background-color: #eee;
     padding: 10px 0;
-    
+
 }
 
 

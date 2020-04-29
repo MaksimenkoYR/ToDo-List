@@ -27,7 +27,7 @@ function switchCheckbox (element){
 function addItem (itemName,id, done, deleted){
     const text = `
         <li class = "item list__item" id = "${id}" >
-            <div class="item__checkbox" id="checkbox"></div>
+            <div class="item__checkbox" tabindex="0" id="checkbox"></div>
             <p class="item__name"> ${itemName} </p>
             <button class="item__button button" id="deleteButton">Delete</button>
         </li>

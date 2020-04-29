@@ -7,13 +7,22 @@ let id = 0;
 
 function deleteItem (element){
     element.parentNode.removeChild(element);
+    console.log(element.id);
+    LIST.forEach((el, i) =>{
+        if(el.id === +element.id){
+            console.log(i);
+            LIST.splice(i,1);
+
+        }
+    });    
+
+    localStorage.setItem("LIST", JSON.stringify(LIST));
 }
 
 function switchCheckbox (element){
     element.classList.toggle(DONE);
     LIST[element.id].done = !LIST[element.id].done;
-} 
-
+}
 
 function addItem (itemName,id, done, deleted){
     const text = `

@@ -1,6 +1,7 @@
 const DONE ="item--done";
 const appList = document.querySelector(".list");
 const input = document.getElementById("input");
+const data = localStorage.getItem("LIST");
 let LIST = [];
 let id = 0;
 
@@ -44,10 +45,26 @@ window.addEventListener("submit", event => {
             done: false,
             deleted: false
         });
+        localStorage.setItem("LIST", JSON.stringify(LIST));
     } else {
         alert("can't be empty");
     }
     input.value = "";
     id++;
 
+});
+
+function loadList(){
+    LIST = JSON.parse(data);
+    LIST.forEach(element => {
+        addItem(element.name, element.id, element.done, element.deleted);
+    });
+}
+
+window.addEventListener("DOMContentLoaded", () => {
+    
+    console.log("loaded");
+    if(data){
+        loadList();
+    }
 });

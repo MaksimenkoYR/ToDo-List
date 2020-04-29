@@ -10,64 +10,124 @@ body {
     padding: 0;
     margin: 0;
     background: linear-gradient(#e66465, #9198e5);
+    font-family: Roboto, sans-serif;
+    color: #333;
 }
-
+input,button{
+    transition: border .4s 0s;
+}
+input:focus{
+    outline: none;
+    border: 1.5px solid #555;
+}
 .app{
     display: flex;
     flex-direction: column;
     align-items: stretch;
+    position: relative;
 
     width: 30%;
     min-height: 400px;
+    height: 1px;
     margin: 0 auto;
     margin-top: 100px;
 
-    background-color: #fff;
+    background-color: #eee;
+
     
-    border-radius: 5%;
+    /* border: 1px solid #ccc; */
+    border-radius: 15px;
+    box-shadow: 3px 3px 8px 3px rgba(0,0,0,.3);
+
+    overflow: hidden;
+
+}
+
+.button{
+    padding: 5px 5px;
+    background-color: #fff;
+    border: 1px solid #aaa;
+    border-radius: 12px;
+    font-family: Roboto, sans-serif;
+    
+    font-size: 11px;
+    color:#999;
+    letter-spacing: .5px;
+    /* text-transform: uppercase; */
 }
 
 .app__title{
     text-align: center;
     margin: 0;
     padding: 10px;
+    font-weight: 100;
 
+    background-color: white;
 }
 
 .list{
     list-style: none;
-    padding: 0;
+    padding: 0 20px;
 }
 
 .app__list{
     margin: 0;
+    height: 100%;
 }
 
 .item{
     display: flex;
     align-items: center;
+    background-color: white;
+    border-radius: 30px;
+    padding: 5px 10px;
+    box-shadow: 0 2px 8px -1px;
+    transition: box-shadow .5s 0s;
+}
+
+.item--done{
+    background-color: #bbb;
+    box-shadow: none;
+}
+
+.list__item{
+    margin-top: 10px;
+    
 }
 
 .item__name{
     width: 100%;
-}
-
-.checkbox{
-    width: 20px;
-    height: 20px;
-    
-    border: 2px solid grey;
-    border-radius: 30%;
-
+    margin: 0px;
+    font-weight: 200;
 }
 
 .item__checkbox{
+    width: 20px;
+    height: 20px;
+
+    border: 1px solid grey;
+    border-radius: 50%;
+    
     flex-shrink: 0;
     margin: 5px;
+    position: relative;
 }
 
-.item--done .item__checkbox{
-    background-color: green;
+.item--done .item__checkbox::after{
+    content: "";
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+    transform: translate(-6px,-6px);
+
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+
+    background-color: #888;
+
+
 }
 
 .item--done .item__name{
@@ -75,14 +135,45 @@ body {
     text-decoration: line-through;
 }
 
+.item__button{
+    opacity: 0;
+    transition: all .3s 0s;
+}
+
+.item:hover .item__button{
+    opacity: .5;
+}
+.item .item__button:hover{
+    opacity: 1;
+    border-color: #999;
+    color: #888;
+}
 
 .form{
     padding: 10px;
+    background-color: #fff;
+    display: flex;
 }
 
-.app__form{
-    margin-top: auto;
+.form__input{
+    width: 100%;
+    border: 1px solid #aaa;
+    border-radius: 30px;
+    padding: 0 10px;
+    font-size: 18px;
+    font-family: Roboto, sans-serif;
+    font-weight: 100;
 }
 
+.button:hover{
+    border-color: #444;
+    color: #333;
 
+}
+
+.form__button{
+    width: 20%;
+    margin-left: 10px;
+    flex-shrink: 0;
+}
 

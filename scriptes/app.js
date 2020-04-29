@@ -1,0 +1,53 @@
+const DONE ="item--done";
+const appList = document.querySelector(".list");
+const input = document.getElementById("input");
+let LIST = [];
+let id = 0;
+
+function deleteItem (element){
+    element.parentNode.removeChild(element);
+}
+
+function switchCheckbox (element){
+    element.classList.toggle(DONE);
+    LIST[element.id].done = !LIST[element.id].done;
+} 
+
+
+function addItem (itemName,id, done, deleted){
+    const text = `
+        <li class = "item" id = "${id}" >
+            <div class="item__checkbox checkbox" id="checkbox"></div>
+            <p class="item__name"> ${itemName} </p>
+            <button class="item__button button" id="deleteButton">Delete</button>
+        </li>
+    `;
+
+    appList.insertAdjacentHTML("beforeend", text);
+}
+
+appList.addEventListener("click", event => {
+    currentItem = event.target.parentNode;
+    event.target.id === "checkbox" && switchCheckbox(currentItem); 
+    event.target.id === "deleteButton" && deleteItem(currentItem);
+});
+
+window.addEventListener("submit", event => {
+    console.log("ggg");
+    event.preventDefault();
+    const itemName = input.value;
+    if(itemName){
+        addItem(itemName,id,false,false);
+        LIST.push({
+            name: itemName,
+            id: id,
+            done: false,
+            deleted: false
+        });
+    } else {
+        alert("can't be empty");
+    }
+    input.value = "";
+    id++;
+
+});
